@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import UserInfo from "./components/UserInfo";
-import LinkToRepo from "./components/LinkToRepo";
+import RepoGallery from "./pages/RepoGallery";
 import {useState} from "react";
 import {getUser} from "./service/github-api";
 
@@ -40,7 +40,7 @@ function App() {
                     </section>
                 </Route>
                 <Route path={"/repos"}>
-                    <LinkToRepo />
+                    <RepoGallery profile={profile} />
                 </Route>
             </Switch>
         </Router>
