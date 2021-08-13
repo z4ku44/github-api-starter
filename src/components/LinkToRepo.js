@@ -1,9 +1,12 @@
-import {Link} from "react-router-dom";
+
+import {getRepos} from "../service/github-api";
 
 export default function LinkToRepo() {
+
+
     return(
         <section>
-            <Link to="/"> test</Link>
+<p>hallo</p>
         </section>
     );
 }

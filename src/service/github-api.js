@@ -13,3 +13,5 @@ export const getUser =  (inputUser) => instance.get(`https://api.github.com/user
     .then(response => response.data)
    // .then (response => console.log("INPUT USER: ",inputUser, "RESPONSE: ", response))
 
+export const getRepos =  (inputUser) => instance.get(`https://api.github.com/users/${inputUser}/repos`)
+    .then(response => response.data)

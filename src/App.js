@@ -1,6 +1,6 @@
 import './App.css';
 
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
 import UserInfo from "./components/UserInfo";
 import LinkToRepo from "./components/LinkToRepo";
@@ -36,9 +36,11 @@ function App() {
                             <input type="text"  onChange={event => setInputName(event.target.value) }/>
                             <button type="submit" >Search</button>
                         </form>
+                        <Link to ="/repos">Repositories</Link>
                     </section>
-                    <LinkToRepo/>
-
+                </Route>
+                <Route path={"/repos"}>
+                    <LinkToRepo />
                 </Route>
             </Switch>
         </Router>
