@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {getLoggedInUser} from "./service/github-api";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Header from "./components/Header";
+import UserInfo from "./components/UserInfo";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Switch>
           <Route exact path={"/"}>
               <Header />
+              <UserInfo />
           </Route>
         </Switch>
       </Router>
