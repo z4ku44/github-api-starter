@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import {getRepos} from "../service/github-api";
-import Header from "../components/Header";
 
 export default function RepoGallery({profile}) {
 
@@ -14,13 +13,12 @@ export default function RepoGallery({profile}) {
 
     const repoMap = repos.map((repo) =>
         <li key={repo.id}>
-            {repo.name}
+            <a href = {repo.html_url} > {repo.name} </a>
         </li>
     );
 
-    return (
+    return(
         <section>
-            <Header/>
             <p>{repoMap}</p>
         </section>
     );
