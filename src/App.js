@@ -16,7 +16,6 @@ function App() {
     getUser()
         .then(setProfile).catch(error => setError(error.response.status))
   },[])
-console.log(profile)
   if(!profile && !error){
     return <p>loading</p>
   }
@@ -27,7 +26,7 @@ console.log(profile)
           <Route exact path={"/"}>
               <Header />
               <UserInfo />
-              <InputForm />
+              <InputForm profile ={profile}/>
               <LinkToRepo />
           </Route>
         </Switch>

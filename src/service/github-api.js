@@ -9,5 +9,7 @@ const instance = axios.create({
 
 
 export const getLoggedInUser = () => instance.get("https://api.github.com/user").then(response => response.data)
-export const getUser =  (inputUser) => axios.get(`https://api.github.com/users/${inputUser}`)
+export const getUser =  (inputUser) => axios.get(`https://api.github.com/users/TomZe1982`)
     .then(response => response.data)
+   // .then (response => console.log("INPUT USER: ",inputUser, "RESPONSE: ", response))
+
