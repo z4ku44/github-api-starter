@@ -1,6 +1,9 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {getLoggedInUser} from "./service/github-api";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Header from "./components/Header";
+
 
 function App() {
   const [profile,setProfile] = useState()
@@ -15,11 +18,16 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {profile && <img src={profile.avatar_url} alt={profile.login}/>}
-      {error && <img src={`https://http.cat/${error}`} alt={error} />}
-    </div>
+      <Router>
+        <Switch>
+          <Route exact path={"/"}>
+              <Header />
+          </Route>
+        </Switch>
+      </Router>
   );
 }
 
 export default App;
+
+
