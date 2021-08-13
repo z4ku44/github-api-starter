@@ -1,14 +1,14 @@
 
 
 
-export default function UserInfo() {
+export default function UserInfo({ profile }) {
     return(
         <section>
             <div>
-                <img src="" alt="profile"/>
+                <img src= {profile.avatar_url}  alt="profile"/>
             </div>
             <div>
-                <p>username</p>
+                <p>{profile.login}</p>
             </div>
         </section>
     );
