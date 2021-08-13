@@ -1,18 +1,27 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {getRepos} from "../service/github-api";
+import Header from "../components/Header";
 
 export default function RepoGallery({profile}) {
 
-    const [repo, setRepo] = useState()
+    const [repos, setRepos] = useState([])
 
+    useEffect(() => {
+        getRepos(profile.login).then(setRepos).catch(error => console.error(error))
+    }, [])
 
-        getRepos(profile.login).then(setRepo).catch(error => console.error(error))
+    console.log("These are the Repos", repos)
 
-    const repoMap = repo.map
-    console.log(repo)
+    const repoMap = repos.map((repo) =>
+        <li key={repo.id}>
+            {repo.name}
+        </li>
+    );
+
     return (
         <section>
-            <p>hallo</p>
+            <Header/>
+            <p>{repoMap}</p>
         </section>
     );
 }
