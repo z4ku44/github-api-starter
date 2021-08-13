@@ -1,6 +1,6 @@
 import './App.css';
 
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Switch, useParams} from "react-router-dom";
 import Header from "./components/Header";
 import UserInfo from "./components/UserInfo";
 import RepoGallery from "./pages/RepoGallery";
@@ -9,10 +9,12 @@ import {getUser} from "./service/github-api";
 
 
 function App() {
+    
     const [inputName, setInputName] = useState("")
     const [profile, setProfile] = useState()
     const [error, setError] = useState()
-
+    
+    
 
     console.log("Profil: ", profile)
 
@@ -36,10 +38,10 @@ function App() {
                             <input type="text"  onChange={event => setInputName(event.target.value) }/>
                             <button type="submit" >Search</button>
                         </form>
-                        <Link to ="/repos">Repositories</Link>
+                            <Link to="/repos">{profile ? "Repository" : " "}</Link>
                     </section>
                 </Route>
-                <Route path={"/repos"}>
+                <Route path={"/repos/"}>
                     <RepoGallery profile={profile} />
                 </Route>
             </Switch>
